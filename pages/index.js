@@ -52,11 +52,33 @@ const cardElementTest = document.querySelectorAll('.card:first-child')[0]
     .querySelector('.card__like').classList.add('card__like_checked');
 
 
+////
+
+
+let buttonAddImage = document.querySelector('.popup__button');
+buttonAddImage.addEventListener('click', ()=>{
+  const name = document.querySelector('#popup__input_title').value;
+  const link = document.querySelector('#popup__input_link').value;
+  AddNewCard({name:name, link:link});
+});
+
+
 //////////////////
 
+const dialogElem = document.getElementById("dialog-id");
+let buttonChangeProfile = document.getElementById('menu__button_changeProfile');
+buttonChangeProfile.addEventListener('click', (event)=>{
+  console.log(event);
+  dialogElem.showModal();
+});
 
+document.addEventListener('click', (event)=>{
+  let tg = event.target;
+  if(tg.classList.contains('card__image'))
+    console.log(event.target);
+})
 
-console.log('Hello');
+////
 
 let profileName = document.querySelector('#profile__input_name');
 console.log(`Значение pl = ${profileName.placeholder}`);
